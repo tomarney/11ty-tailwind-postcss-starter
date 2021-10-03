@@ -1,0 +1,57 @@
+const htmlmin = require('html-minifier')
+
+module.exports = function (eleventyConfig) {
+
+  eleventyConfig.addPassthroughCopy("src/img")
+  eleventyConfig.addWatchTarget("src/styles")
+
+  eleventyConfig.on('beforeBuild', () => {
+    const autoprefixer = require('autoprefixer')
+    const postcss = require('postcss')
+    const tailwindcss = require('tailwindcss')
+    const fs = require('fs')
+
+    fs.mkdirSync('_site/styles/', { recursive: true })
+    fs.readFile('src/styles/main.css', (err, css) => {
+      postcss([autoprefixer, tailwindcss])
+        .process(css, { from: 'src/styles/main.css', to: '_site/styles/main.min.css' })
+        .then(result => {
+          fs.writeFile('_site/styles/main.min.css', result.css, (err) => {
+            if (err) throw err;
+          });
+        })
+    })
+  })
+
+  eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+    if (process.env.NODE_ENV === "production" &&
+      outputPath && outputPath.endsWith('.html')) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+      });
+      return minified
+    }
+    return content
+  })
+
+  eleventyConfig.addShortcode('uid', function () {
+    return Date.now().toString(36)
+  })
+
+  return {
+    dir: {
+      input: 'src',
+      output: '_site',
+      data: './_data',
+      includes: './_includes',
+      layouts: './_layouts'
+    },
+    templateFormats: [
+      'md',
+      'njk',
+    ],
+    htmlTemplateEngine: 'njk'
+  }
+}
