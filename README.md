@@ -7,8 +7,8 @@ A simple static website starter, compiled by [Eleventy](https://www.11ty.dev/) w
 1. Make sure you have [Node.js](https://nodejs.org/en/) installed.
 
 2. You can either clone the repo, fork it, [download](/archive/refs/heads/main.zip) it or [use it as a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
-3. 
-    Then, in the root folder, run:
+
+3. Then, in the root folder, run:
 
     ```shell
     npm install

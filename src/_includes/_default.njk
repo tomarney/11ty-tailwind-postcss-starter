@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-GB">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title or siteData.contentDefaults.title }}</title>
+    <meta name="description" content="{{ description or siteData.contentDefaults.description}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:site_name" content="{{ siteData.site_name }}"/>
+    <meta property="og:title" content="{{ title or siteData.contentDefaults.title }}">
+    <meta property="og:description" content="{{ description or siteData.contentDefaults.description }}">
+    <meta property="og:type" content="{{ type or siteData.contentDefaults.type }}">
+    <meta property="og:url" content="{{siteData.baseUrl}}{{ permalink or page.url }}">
+    <meta property="og:image" content="{{siteData.baseUrl}}/img/{{ image or siteData.contentDefaults.image }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/assets/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="/styles/main.min.css?v={% uid %}"/>
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav>
+        <ul>
+          {% for item in menus.siteNav | rejectattr("hide") %}
+            <li><a href="{{item.url}}" title="{{item.hoverText}}">{{item.displayText}}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      {% block main %}
+        {{ content | safe }}
+      {% endblock %}
+    </main>
+
+    <footer>
+      <p>&copy; {% year %}</p>
+    </footer>
+
+  </body>
+
+</html>

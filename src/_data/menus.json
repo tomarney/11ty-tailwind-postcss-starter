@@ -1,0 +1,22 @@
+{
+    "siteNav": [
+        {
+            "displayText": "Home",
+            "url": "/",
+            "hoverText": "The home page",
+            "hide": false
+        },
+        {
+            "displayText": "About",
+            "url": "/about",
+            "hoverText": "more information",
+            "hide": false
+        },
+        {
+            "displayText": "Hidden page",
+            "url": "/hidden",
+            "hoverText": "set 'hide' to 'false' to show this page",
+            "hide": true
+        }
+    ]
+}

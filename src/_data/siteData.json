@@ -1,0 +1,16 @@
+{
+    "site_name": "11ty-tailwind-postcss-starter",
+    "baseUrl": "https://github.com/tomarney/11ty-tailwind-postcss-starter",
+    "contentDefaults": {
+        "title": "A page",
+        "author": "Tom Arney",
+        "image": "assets/social-cover-default.png",
+        "description": "11ty-tailwind-postcss-starter is a simple static website starter, compiled by Eleventy with nunjucks and with Tailwind CSS as a PostCSS plugin.",
+        "type": "website",
+        "tags": [
+            "11ty",
+            "tailwind",
+            "postcss"
+        ]
+    }
+}

@@ -1,5 +1,10 @@
-@tailwind base;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@tailwind components;
+@import "base";
+@import "components";
+@import "utilities";
 
-@tailwind utilities;
+/* import Google fonts */
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap"); */
