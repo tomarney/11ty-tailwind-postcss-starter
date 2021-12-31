@@ -24,7 +24,7 @@ A simple static website starter, compiled by [Eleventy](https://www.11ty.dev/) w
 
 5. Go to <http://localhost:8080/> (or whatever Browsersync gives you as the local access URL). Hopefully you should now see a functioning website.
 
-6. Work you magic! build something cool, then...
+6. Work your magic! build something cool, then...
 
 7. when you're ready to deploy somewhere, run:
 
